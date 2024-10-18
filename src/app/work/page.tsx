@@ -5,55 +5,76 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { BsArrowUpRight, BsGithub } from 'react-icons/bs';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import Link from 'next/link';
 import Image from 'next/image';
 import WorkSliderBtns from '@/components/WorkSliderBtns';
+import type { Swiper as SwiperType } from 'swiper/types';
 
 const projects = [
   {
     num: '01',
     category: 'frontend',
-    title: 'project-1',
-    description: 'sdfhkdsj jdhkjhfk',
-    stack: [{ name: 'Html5' }, { name: 'Css3' }, { name: 'JavaScript' }],
-    image: '',
-    live: '',
+    title: 'Admin panel ScootApi',
+    description: 'A platform for managing an e-scooter fleet',
+    stack: [
+      { name: 'ReactJs' },
+      { name: 'React Hooks' },
+      { name: 'Redux' },
+      { name: 'Ant Design' },
+      { name: 'TypeScript' },
+      { name: 'Docker' },
+      { name: 'RESTful API' },
+    ],
+    image: '/assets/admin-2.png',
+    live: 'https://scootapi.com/en/',
     github: '',
   },
   {
     num: '02',
     category: 'frontend',
-    title: 'project-1',
-    description: 'sdfhkdsj jdhkjhfk',
-    stack: [{ name: 'Html5' }, { name: 'Css3' }, { name: 'JavaScript' }],
-    image: '',
-    live: '',
-    github: '',
+    title: 'Holidays',
+    description: 'Management system for scheduling vacations and absence of employees',
+    stack: [{ name: 'ReactJs' }, { name: 'Ant Design' }, { name: 'Axios' }, { name: 'NestJs' }, { name: 'MySQL' }],
+    image: '/assets/holidays.png',
+    live: 'https://github.com/darya425/super_holidays/tree/dev',
+    github: 'https://github.com/darya425/super_holidays_backend/tree/dev',
   },
   {
     num: '03',
     category: 'frontend',
-    title: 'project-1',
-    description: 'sdfhkdsj jdhkjhfk',
-    stack: [{ name: 'Html5' }, { name: 'Css3' }, { name: 'JavaScript' }],
-    image: '',
-    live: '',
-    github: '',
+    title: 'Event-booster',
+    description: 'Project to search for current events',
+    stack: [
+      { name: 'Html5' },
+      { name: 'SASS' },
+      { name: 'Handlebars Template' },
+      { name: 'RESTful API' },
+      { name: 'vanilla JS' },
+      { name: 'Responsive design' },
+    ],
+    image: '/assets/booster-1.png',
+    live: 'https://darya425.github.io/event-booster/',
+    github: 'https://github.com/darya425/event-booster',
   },
   {
     num: '04',
     category: 'frontend',
-    title: 'project-1',
-    description: 'sdfhkdsj jdhkjhfk',
-    stack: [{ name: 'Html5' }, { name: 'Css3' }, { name: 'впв' }],
-    image: '',
-    live: '',
+    title: 'Besthometenerife',
+    description: 'Real estate search project',
+    stack: [{ name: 'Wordpress' }],
+    image: '/assets/tenerife-2.png',
+    live: 'https://besthometenerife.com/',
+    github: '',
+  },
+  {
+    num: '05',
+    category: 'frontend',
+    title: 'Astanbud',
+    description: 'Company information page',
+    stack: [{ name: 'Wordpress' }],
+    image: '/assets/astanbud-1.png',
+    live: 'https://astanbud.pl/',
     github: '',
   },
 ];
@@ -61,9 +82,9 @@ const projects = [
 const Work = () => {
   const [project, setProject] = useState(projects[0]);
 
-  const handleSliderChange = (swiper: any) => {
+  const handleSliderChange = (swiper: SwiperType) => {
     const currentIndex = swiper.activeIndex;
-    setProject(projects[currentIndex]); // Обновляем состояние проектом, а не индексом
+    setProject(projects[currentIndex]);
   };
 
   return (
@@ -80,17 +101,15 @@ const Work = () => {
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
             <div className="flex flex-col gap-[30px]">
               {/* outline num */}
-              <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
-                {project.num}
-              </div>
+              <div className="text-8xl leading-none font-extrabold text-transparent text-outline">{project.num}</div>
               {/* project category */}
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
+                {project.title}
               </h2>
               {/* project description */}
               <p className="text-white/60">{project.description}</p>
               {/* stack */}
-              <ul className="flex gap-4">
+              <ul className="flex gap-4 flex-wrap">
                 {project.stack.map((item, index) => (
                   <li key={index} className="text-xl text-accent">
                     {item.name}
@@ -108,27 +127,35 @@ const Work = () => {
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                        {project.num === '02' ? (
+                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        ) : (
+                          <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                        )}
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Live project</p>
+                        <p>
+                          {project.num === '01' ? 'About' : project.num === '02' ? 'GitHub frontend' : 'Live project'}
+                        </p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
                 </Link>
                 {/* github project button */}
-                <Link href={project.github}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Github repository</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {(project.num === '02' || project.num === '03') && (
+                  <Link href={project.github}>
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{project.num === '02' ? 'GitHub backend' : 'Github repository'}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -146,12 +173,7 @@ const Work = () => {
                     <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                     {/* image */}
                     <div className="relative w-full h-full">
-                      <Image
-                        src={project.image}
-                        fill
-                        className="object-cover"
-                        alt=""
-                      />
+                      <Image src={project.image} fill className="object-cover" alt="" />
                     </div>
                   </div>
                 </SwiperSlide>
