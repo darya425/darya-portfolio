@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 const info = [
   {
@@ -24,7 +25,48 @@ const info = [
   },
 ];
 
+interface FormData {
+  firstname: string;
+  lastname: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
 const Contact = () => {
+  const [formData, setFormData] = useState<FormData>({
+    firstname: '',
+    lastname: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('https://darya-kuliashova-portfolio-backend.netlify.app/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        alert('Message sent successfully!');
+      } else {
+        alert('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('There was an error sending the message');
+    }
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -38,7 +80,7 @@ const Contact = () => {
         <div className="flex flex-col xl:flex-row gap-[30px]">
           {/* form */}
           <div className="xl:w-[54%] order-2 xl:order-none">
-            <form action="" className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
               <h3 className="text-4xl text-accent"> Let&apos;s work together</h3>
               <p className="text-white/60">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, totam excepturi? Eos minus molestiae
@@ -46,15 +88,39 @@ const Contact = () => {
               </p>
               {/* Input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firstname" placeholder="First name" />
-                <Input type="lastname" placeholder="Last name" />
-                <Input type="email" placeholder="Email" />
-                <Input type="phone" placeholder="Phone number" />
+                <Input
+                  type="text"
+                  name="firstname"
+                  placeholder="First name"
+                  value={formData.firstname}
+                  onChange={handleChange}
+                />
+                <Input
+                  type="text"
+                  name="lastname"
+                  placeholder="Last name"
+                  value={formData.lastname}
+                  onChange={handleChange}
+                />
+                <Input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
+                <Input
+                  type="text"
+                  name="phone"
+                  placeholder="Phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
               </div>
               {/* Textarea */}
-              <Textarea className="h-[200px]" placeholder="Type your message here" />
+              <Textarea
+                className="h-[200px]"
+                name="message"
+                placeholder="Type your message here"
+                value={formData.message}
+                onChange={handleChange}
+              />
               {/* Button */}
-              <Button size="md" className="max-w-40">
+              <Button type="submit" size="md" className="max-w-40">
                 Send message
               </Button>
             </form>
