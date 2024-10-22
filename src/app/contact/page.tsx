@@ -49,7 +49,7 @@ const Contact = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://darya-kuliashova-portfolio-backend.netlify.app/send-email', {
+      const response = await fetch('https://darya-kuliashova-backend-080563d8bd75.herokuapp.com/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
