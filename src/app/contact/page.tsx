@@ -29,7 +29,6 @@ interface FormData {
   firstname: string;
   lastname: string;
   email: string;
-  phone: string;
   message: string;
 }
 
@@ -38,7 +37,6 @@ const Contact = () => {
     firstname: '',
     lastname: '',
     email: '',
-    phone: '',
     message: '',
   });
 
@@ -74,7 +72,7 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: 'easeIn' },
+        transition: { delay: 0.1, duration: 0.5, ease: 'easeIn' },
       }}
       className="py-6"
     >
@@ -88,7 +86,6 @@ const Contact = () => {
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, totam excepturi? Eos minus molestiae
                 et?
               </p>
-              {/* Input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
                   type="text"
@@ -104,16 +101,8 @@ const Contact = () => {
                   value={formData.lastname}
                   onChange={handleChange}
                 />
-                <Input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
-                <Input
-                  type="text"
-                  name="phone"
-                  placeholder="Phone number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                />
               </div>
-              {/* Textarea */}
+              <Input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
               <Textarea
                 className="h-[200px]"
                 name="message"
@@ -121,7 +110,6 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
               />
-              {/* Button */}
               <Button type="submit" size="md" className="max-w-40">
                 Send message
               </Button>
