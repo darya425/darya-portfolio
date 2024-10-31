@@ -40,21 +40,26 @@ const Contact = () => {
     message: '',
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://darya-kuliashova-backend-080563d8bd75.herokuapp.com/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
+      const response = await fetch(
+        'https://darya-kuliashova-backend-080563d8bd75.herokuapp.com/send-email',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       if (response.ok) {
         alert('Message sent successfully!');
@@ -80,11 +85,14 @@ const Contact = () => {
         <div className="flex flex-col xl:flex-row gap-[30px]">
           {/* form */}
           <div className="xl:w-[54%] order-2 xl:order-none">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-              <h3 className="text-4xl text-accent"> Let&apos;s work together</h3>
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+            >
+              <h3 className="text-4xl text-accent">Let&apos;s work together</h3>
               <p className="text-white/60">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, totam excepturi? Eos minus molestiae
-                et?
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Veniam, totam excepturi? Eos minus molestiae et?
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
@@ -102,7 +110,13 @@ const Contact = () => {
                   onChange={handleChange}
                 />
               </div>
-              <Input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
+              <Input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+              />
               <Textarea
                 className="h-[200px]"
                 name="message"

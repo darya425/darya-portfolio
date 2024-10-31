@@ -5,7 +5,12 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { BsArrowUpRight, BsGithub } from 'react-icons/bs';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import Link from 'next/link';
 import Image from 'next/image';
 import WorkSliderBtns from '@/components/WorkSliderBtns';
@@ -34,8 +39,15 @@ const projects = [
     num: '02',
     category: 'frontend',
     title: 'Holidays',
-    description: 'Management system for scheduling vacations and absence of employees',
-    stack: [{ name: 'ReactJs' }, { name: 'Ant Design' }, { name: 'Axios' }, { name: 'NestJs' }, { name: 'MySQL' }],
+    description:
+      'Management system for scheduling vacations and absence of employees',
+    stack: [
+      { name: 'ReactJs' },
+      { name: 'Ant Design' },
+      { name: 'Axios' },
+      { name: 'NestJs' },
+      { name: 'MySQL' },
+    ],
     image: '/assets/holidays.png',
     live: 'https://github.com/darya425/super_holidays/tree/dev',
     github: 'https://github.com/darya425/super_holidays_backend/tree/dev',
@@ -101,7 +113,9 @@ const Work = () => {
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
             <div className="flex flex-col gap-[30px]">
               {/* outline num */}
-              <div className="text-8xl leading-none font-extrabold text-transparent text-outline">{project.num}</div>
+              <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
+                {project.num}
+              </div>
               {/* project category */}
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
                 {project.title}
@@ -135,7 +149,11 @@ const Work = () => {
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>
-                          {project.num === '01' ? 'About' : project.num === '02' ? 'GitHub frontend' : 'Live project'}
+                          {project.num === '01'
+                            ? 'About'
+                            : project.num === '02'
+                              ? 'GitHub frontend'
+                              : 'Live project'}
                         </p>
                       </TooltipContent>
                     </Tooltip>
@@ -150,7 +168,11 @@ const Work = () => {
                           <BsGithub className="text-white text-3xl group-hover:text-accent" />
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>{project.num === '02' ? 'GitHub backend' : 'Github repository'}</p>
+                          <p>
+                            {project.num === '02'
+                              ? 'GitHub backend'
+                              : 'Github repository'}
+                          </p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
@@ -173,7 +195,12 @@ const Work = () => {
                     <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                     {/* image */}
                     <div className="relative w-full h-full">
-                      <Image src={project.image} fill className="object-cover" alt="" />
+                      <Image
+                        src={project.image}
+                        fill
+                        className="object-cover"
+                        alt=""
+                      />
                     </div>
                   </div>
                 </SwiperSlide>

@@ -23,7 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="google-site-verification" content="eO0N3oDfMpgnYyVSd98PvXn5GW1yGZKDb3_4_42Dv1k" />
+        <meta
+          name="google-site-verification"
+          content="eO0N3oDfMpgnYyVSd98PvXn5GW1yGZKDb3_4_42Dv1k"
+        />
       </head>
       <body className={jetbrainsMono.variable}>
         <Header />

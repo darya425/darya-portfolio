@@ -8,11 +8,7 @@ interface PageTransitionProps {
 
 const PageTransition = ({ children }: PageTransitionProps) => {
   const pathname = usePathname();
-  return (
-      <div key={pathname}>
-        {children}
-      </div>
-  );
+  return <div key={pathname}>{children}</div>;
 };
 
 export default PageTransition;
