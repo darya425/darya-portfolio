@@ -16,9 +16,11 @@ const Home = () => {
               <span className="text-accent">Darya Kuliashova</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              I am a Front End Developer with 3+ years of experience building
-              websites and web applications and proficient in various
-              programming languages and technologies.
+              I am a Frontend developer with 4+ years of experience creating
+              scalable, high-performance web applications using React,
+              TypeScript, and Next.js. Proficient in building clean,
+              maintainable code and delivering responsive, user-friendly
+              interfaces.
             </p>
 
             <div className="flex flex-col xl:flex-row items-center gap-8">

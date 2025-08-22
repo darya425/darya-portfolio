@@ -9,11 +9,11 @@ interface WorkSliderBtns {
   iconsStyles?: string;
 }
 
-const WorkSliderBtns = ({
+export default function WorkSliderBtns({
   containerStyles,
   btnStyles,
   iconsStyles,
-}: WorkSliderBtns) => {
+}: WorkSliderBtns) {
   const swiper = useSwiper();
 
   return (
@@ -26,6 +26,4 @@ const WorkSliderBtns = ({
       </button>
     </div>
   );
-};
-
-export default WorkSliderBtns;
+}

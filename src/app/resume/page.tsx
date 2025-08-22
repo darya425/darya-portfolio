@@ -9,13 +9,23 @@ import {
   FaWordpress,
   FaSass,
   FaGit,
+  FaDocker,
+  FaGithub,
+  FaGitlab,
 } from 'react-icons/fa';
-import { SiTailwindcss, SiNextdotjs } from 'react-icons/si';
+import {
+  SiTailwindcss,
+  SiNextdotjs,
+  SiRadixui,
+  SiNestjs,
+  SiTypescript,
+  SiAntdesign,
+} from 'react-icons/si';
 
 const about = {
   title: 'About me',
   description:
-    'I am a Frontend Developer with over 3 years of experience. I am self-disciplined, results-driven, and determined to achieve goals. I confidently take on responsibilities, welcome constructive feedback, and maintain a positive sense of humor. I am always excited about opportunities to learn from experienced developers and to collaborate with like-minded, fun individuals who share my passion for doing great work.',
+    '              I am a Frontend developer with 4+ years of experience creating scalable, high-performance web applications using React, TypeScript, and Next.js. Proficient in building clean, maintainable code and delivering responsive, user-friendly interfaces.',
   info: [
     {
       fieldName: 'Name',
@@ -27,7 +37,7 @@ const about = {
     },
     {
       fieldName: 'Experience',
-      fieldValue: '3+ Years',
+      fieldValue: '4+ Years',
     },
     {
       fieldName: 'Email',
@@ -44,12 +54,17 @@ const experience = {
   icon: '/assets/resume/barge.svg',
   title: 'My experience',
   description:
-    'I am involved in the development and optimization of a scooter-sharing application using React 18, TypeScript, and Antd components. I take part in designing the architecture for new features and collaborate closely with other departments to implement projects according to business logic. A key part of my role is ensuring the application adheres to Responsive Web Design (RWD) and Mobile-First principles, making it accessible across various devices. I also focus on adding new features, styling the application using CSS, and regularly engaging in debugging and refactoring to improve the overall code quality and performance.',
+    'I have experience as a Frontend Developer working with React, Next.js, TypeScript, and Tailwind CSS. I developed and improved web applications, built responsive and mobile-first layouts, and worked closely with product, design, and backend teams. I also designed scalable and modular architectures, added new features, styled components, and improved performance through debugging and refactoring.',
   items: [
     {
-      company: 'Scootapi - Micromobility Sharing Technology',
-      position: 'Frontend Developer',
+      company: 'Generation Impact Global',
+      position: 'Frontend Developer | NextJs',
       duration: '2021 - Present',
+    },
+    {
+      company: 'Scootapi - Micromobility Sharing Technology',
+      position: 'Frontend Developer | React',
+      duration: '2021 - 2025',
     },
   ],
 };
@@ -63,7 +78,7 @@ const education = {
     {
       institution: 'GoIT',
       degree: 'Full Stack Developer',
-      duration: '2020',
+      duration: '2020-2021',
     },
     {
       institution: 'Polessky State University',
@@ -77,50 +92,146 @@ const skills = {
   title: 'My skills',
   description:
     'I am skilled in HTML5 (semantics), CSS3/SCSS, JavaScript, and Cross-Browser Compatibility, as well as in React.js, Next.js, RestAPIs, and Git. I have successfully implemented team and individual projects using the above technologies, including Node.js, and NestJS.',
+  category: [
+    {
+      name: 'Languages',
+      items: ['JavaScript', ' ES6', 'TypeScript', 'HTML5', 'CSS3', 'SASS'],
+    },
+    {
+      name: 'Frameworks',
+      items: [
+        ' React',
+        'Next.js',
+        'Redux Toolkit',
+        'React Router',
+        'RTK Query',
+      ],
+    },
+    {
+      name: 'Styling & UI',
+      items: [
+        'Tailwind CSS',
+        'shadcn/ui',
+        'Radix UI',
+        'Ant Design',
+        'Mobile-First RWD',
+      ],
+    },
+    {
+      name: 'Tools',
+      items: [
+        'Git',
+        'GitHub',
+        'GitLab',
+        'Webpack',
+        'Docker',
+        'Jest',
+        'React Testing Library',
+      ],
+    },
+
+    {
+      name: 'Databases & ORM',
+      items: [
+        'MongoDB',
+        'Mongoose',
+        ' MySQL',
+        'PostgreSQL',
+        'Neon',
+        'Drizzle ORM',
+      ],
+    },
+    {
+      name: 'Auth & API Services',
+      items: ['REST API', 'Axios', 'Kinde'],
+    },
+    {
+      name: 'Backend (basic)',
+      items: ['Node.js', 'Express.js', 'NestJS'],
+    },
+    {
+      name: 'Other',
+      items: [
+        'Agile',
+        'cross-team collaboration',
+        'debugging',
+        'performance optimization',
+      ],
+    },
+  ],
+
   skillList: [
     {
-      icon: <FaHtml5 />,
+      icon: <FaHtml5 size={30} />,
       name: 'html 5',
     },
     {
-      icon: <FaCss3 />,
+      icon: <FaCss3 size={30} />,
       name: 'css 3',
     },
     {
-      icon: <FaSass />,
+      icon: <FaSass size={30} />,
       name: 'sass',
     },
     {
-      icon: <FaJs />,
+      icon: <FaJs size={30} />,
       name: 'javascript',
     },
     {
-      icon: <FaReact />,
+      icon: <FaReact size={30} />,
       name: 'react.js',
     },
     {
-      icon: <SiNextdotjs />,
+      icon: <SiNextdotjs size={30} />,
       name: 'next.js',
     },
     {
-      icon: <SiTailwindcss />,
+      icon: <SiTailwindcss size={30} />,
       name: 'tailwind.css',
     },
     {
-      icon: <FaFigma />,
+      icon: <FaFigma size={30} />,
       name: 'figma',
     },
     {
-      icon: <FaNodeJs />,
+      icon: <FaNodeJs size={30} />,
       name: 'node js',
     },
     {
-      icon: <FaWordpress />,
+      icon: <FaWordpress size={30} />,
       name: 'wordpress',
     },
     {
-      icon: <FaGit />,
+      icon: <FaGit size={30} />,
       name: 'git',
+    },
+    {
+      icon: <SiRadixui size={30} />,
+      name: 'RadixUi',
+    },
+    {
+      icon: <FaDocker size={30} />,
+      name: 'Docker',
+    },
+    {
+      icon: <SiNestjs size={30} />,
+      name: 'NestJs',
+    },
+    {
+      icon: <SiTypescript size={30} />,
+      name: 'TS',
+    },
+    {
+      icon: <SiAntdesign size={30} />,
+      name: 'Ant Design',
+    },
+    {
+      icon: <FaGithub size={30} />,
+      name: 'GitHub',
+    },
+    {
+      icon: <FaGitlab size={30} />,
+      name: 'GitLub',
     },
   ],
 };
@@ -133,18 +244,10 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { motion } from 'framer-motion';
 
 const Resume = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 0.1, duration: 0.5, ease: 'easeIn' },
-      }}
-      className="min-h-[80vh] flex justify-center py-12 xl:py-0"
-    >
+    <>
       <div className="container mx-auto">
         <Tabs
           defaultValue="experience"
@@ -164,18 +267,18 @@ const Resume = () => {
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
-                <ScrollArea className="h-[200px]">
+                <ScrollArea className="h-auto">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                     {experience.items.map((item, index) => (
                       <li
                         key={index}
-                        className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                        className="bg-[#232329] h-full py-6 px-10 rounded-xl flex flex-col justify-center items-start lg:items-start gap-1"
                       >
                         <span className="text-accent">{item.duration}</span>
                         <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
                           {item.position}
                         </h3>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 mt-auto">
                           <span className="min-w-[6px] min-h-[6px] rounded-full bg-accent"></span>
                           <p className="text-white/60">{item.company}</p>
                         </div>
@@ -220,16 +323,35 @@ const Resume = () => {
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <div className="flex flex-col gap-[30px] text-center xl:text-left">
                   <h3 className="text-4xl font-bold">{skills.title}</h3>
-                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                    {skills.description}
-                  </p>
+                  <div className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                    <ul>
+                      {skills.category.map((category) => (
+                        <li
+                          key={category.name}
+                          className="flex gap-2 border-b mb-2 pb-2"
+                        >
+                          <span className="font-extrabold text-[18px] text-nowrap min-w-[215px] te">
+                            {category.name}:
+                          </span>
+                          <ul className="flex justify-start flex-wrap gap-1 items-end">
+                            {category.items.map((item, index) => (
+                              <li key={item}>
+                                {item}
+                                {index < category.items.length - 1 ? ', ' : ''}
+                              </li>
+                            ))}
+                          </ul>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 gap-[30px]">
+                <ul className="flex flex-wrap gap-4 max-w-[600px] justify-center">
                   {skills.skillList.map((skill, index) => (
                     <li key={index}>
                       <TooltipProvider delayDuration={100}>
                         <Tooltip>
-                          <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
+                          <TooltipTrigger className="w-[50px] h-[50px] bg-[#232329] rounded-xl flex justify-center items-center group">
                             <div className="text-6xl group-hover:text-accent transition-all duration-300">
                               {skill.icon}
                             </div>
@@ -262,7 +384,9 @@ const Resume = () => {
                       className="flex items-center justify-center xl:justify-start gap-4"
                     >
                       <span className="text-white/60">{item.fieldName}</span>
-                      <span className="text-xl">{item.fieldValue}</span>
+                      <span className="text-xl lg:text-nowrap">
+                        {item.fieldValue}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -271,7 +395,7 @@ const Resume = () => {
           </div>
         </Tabs>
       </div>
-    </motion.div>
+    </>
   );
 };
 

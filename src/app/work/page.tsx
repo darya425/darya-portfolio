@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -19,11 +18,10 @@ import type { Swiper as SwiperType } from 'swiper/types';
 const projects = [
   {
     num: '01',
-    category: 'frontend',
     title: 'Admin panel ScootApi',
     description: 'A platform for managing an e-scooter fleet',
     stack: [
-      { name: 'ReactJs' },
+      { name: 'React' },
       { name: 'React Hooks' },
       { name: 'Redux' },
       { name: 'Ant Design' },
@@ -37,24 +35,33 @@ const projects = [
   },
   {
     num: '02',
-    category: 'frontend',
-    title: 'Holidays',
+    title: 'Repair Shop',
     description:
-      'Management system for scheduling vacations and absence of employees',
+      'Project on NextJs (authorization | add/update/delete users and tickets)',
     stack: [
-      { name: 'ReactJs' },
-      { name: 'Ant Design' },
-      { name: 'Axios' },
-      { name: 'NestJs' },
-      { name: 'MySQL' },
+      { name: 'NextJs' },
+      { name: 'TypeScript' },
+      { name: 'Tailwind CSS' },
+      { name: 'shadcn/ui' },
+      { name: 'Kinde' },
+      { name: 'Neon' },
+      { name: 'Drizzle ORM' },
     ],
-    image: '/assets/holidays.png',
-    live: 'https://github.com/darya425/super_holidays/tree/dev',
-    github: 'https://github.com/darya425/super_holidays_backend/tree/dev',
+    image: '/assets/repair-shop.png',
+    live: 'https://repair-shop-nu.vercel.app/',
+    github: 'https://github.com/darya425/next-full-app',
   },
   {
     num: '03',
-    category: 'frontend',
+    title: 'Project on NextJs',
+    description: 'Add / Update / Delete products',
+    stack: [{ name: 'NextJs' }, { name: 'TypeScript' }],
+    image: '/assets/products-shop.png',
+    live: '',
+    github: 'https://github.com/darya425/next-tem',
+  },
+  {
+    num: '04',
     title: 'Event-booster',
     description: 'Project to search for current events',
     stack: [
@@ -70,8 +77,7 @@ const projects = [
     github: 'https://github.com/darya425/event-booster',
   },
   {
-    num: '04',
-    category: 'frontend',
+    num: '05',
     title: 'Besthometenerife',
     description: 'Real estate search project',
     stack: [{ name: 'Wordpress' }],
@@ -80,8 +86,7 @@ const projects = [
     github: '',
   },
   {
-    num: '05',
-    category: 'frontend',
+    num: '06',
     title: 'Astanbud',
     description: 'Company information page',
     stack: [{ name: 'Wordpress' }],
@@ -100,24 +105,17 @@ const Work = () => {
   };
 
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 0.1, duration: 0.5, ease: 'easeIn' },
-      }}
-      className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
-    >
+    <>
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
             <div className="flex flex-col gap-[30px]">
               {/* outline num */}
-              <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
+              <div className="text-6xl leading-none font-extrabold ">
                 {project.num}
               </div>
               {/* project category */}
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+              <h2 className="text-4xl font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
                 {project.title}
               </h2>
               {/* project description */}
@@ -137,30 +135,27 @@ const Work = () => {
               {/* button */}
               <div className="flex items-center gap-4">
                 {/* live project button */}
-                <Link href={project.live}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        {project.num === '02' ? (
-                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                        ) : (
+                {project.num !== '03' && (
+                  <Link href={project.live}>
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
                           <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                        )}
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>
-                          {project.num === '01'
-                            ? 'About'
-                            : project.num === '02'
-                              ? 'GitHub frontend'
-                              : 'Live project'}
-                        </p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>
+                            {project.num === '01' ? 'About' : 'Live project'}
+                          </p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
+
                 {/* github project button */}
-                {(project.num === '02' || project.num === '03') && (
+                {(project.num === '02' ||
+                  project.num === '03' ||
+                  project.num === '04') && (
                   <Link href={project.github}>
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
@@ -168,11 +163,7 @@ const Work = () => {
                           <BsGithub className="text-white text-3xl group-hover:text-accent" />
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>
-                            {project.num === '02'
-                              ? 'GitHub backend'
-                              : 'Github repository'}
-                          </p>
+                          <p>Github repository</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
@@ -214,7 +205,7 @@ const Work = () => {
           </div>
         </div>
       </div>
-    </motion.section>
+    </>
   );
 };
 

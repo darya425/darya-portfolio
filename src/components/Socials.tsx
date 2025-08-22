@@ -17,7 +17,7 @@ interface SocialsProps {
   iconStyles: string;
 }
 
-const Socials = ({ containerStyles, iconStyles }: SocialsProps) => {
+export default function Socials({ containerStyles, iconStyles }: SocialsProps) {
   return (
     <div className={containerStyles}>
       {socials.map((item, index) => (
@@ -32,6 +32,4 @@ const Socials = ({ containerStyles, iconStyles }: SocialsProps) => {
       ))}
     </div>
   );
-};
-
-export default Socials;
+}
