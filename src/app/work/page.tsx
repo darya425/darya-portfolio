@@ -11,7 +11,6 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import Link from 'next/link';
-import Image from 'next/image';
 import WorkSliderBtns from '@/components/WorkSliderBtns';
 import type { Swiper as SwiperType } from 'swiper/types';
 
@@ -19,7 +18,7 @@ const projects = [
   {
     num: '01',
     title: 'Admin panel ScootApi',
-    description: 'A platform for managing an e-scooter fleet',
+    description: 'Software for scooter-sharing business',
     stack: [
       { name: 'React' },
       { name: 'React Hooks' },
@@ -29,15 +28,29 @@ const projects = [
       { name: 'Docker' },
       { name: 'RESTful API' },
     ],
-    image: '/assets/admin-2.png',
-    live: 'https://scootapi.com/en/',
+    live: 'https://www.linkedin.com/company/scootapi/',
     github: '',
   },
   {
     num: '02',
+    title: 'Generation Impact Global',
+    description:
+      'Software for the management of non-financial data and RegTech',
+    stack: [
+      { name: 'NextJs' },
+      { name: 'TypeScript' },
+      { name: 'Tailwind CSS' },
+      { name: 'Radix UI' },
+      { name: 'Next.js' },
+    ],
+    live: 'https://generationimpact.global/',
+    github: '',
+  },
+  {
+    num: '03',
     title: 'Repair Shop',
     description:
-      'Project on NextJs (authorization | add/update/delete users and tickets)',
+      'Project on NextJs (authorization | add/update/delete users and tickets) (pet project)',
     stack: [
       { name: 'NextJs' },
       { name: 'TypeScript' },
@@ -52,18 +65,9 @@ const projects = [
     github: 'https://github.com/darya425/next-full-app',
   },
   {
-    num: '03',
-    title: 'Project on NextJs',
-    description: 'Add / Update / Delete products',
-    stack: [{ name: 'NextJs' }, { name: 'TypeScript' }],
-    image: '/assets/products-shop.png',
-    live: '',
-    github: 'https://github.com/darya425/next-tem',
-  },
-  {
     num: '04',
     title: 'Event-booster',
-    description: 'Project to search for current events',
+    description: 'Project to search for current events (pet project)',
     stack: [
       { name: 'Html5' },
       { name: 'SASS' },
@@ -107,35 +111,26 @@ const Work = () => {
   return (
     <>
       <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
+        <div className="flex flex-col xl:flex-row xl:gap-[30px] xl:mt-[100px]">
+          <div className="w-full xl:w-[50%] xl:h-[300px] flex flex-col xl:justify-between order-1 xl:order-none mb-[50px]">
             <div className="flex flex-col gap-[30px]">
-              {/* outline num */}
-              <div className="text-6xl leading-none font-extrabold ">
-                {project.num}
+              <div className="flex flex-col gap-[30px]">
+                <div className="text-6xl leading-none font-extrabold ">
+                  {project.num}
+                </div>
+                <h2 className="text-4xl font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                  {project.title}
+                </h2>
+                <p className="text-white/60 mb-[20px]">{project.description}</p>
               </div>
-              {/* project category */}
-              <h2 className="text-4xl font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.title}
-              </h2>
-              {/* project description */}
-              <p className="text-white/60">{project.description}</p>
-              {/* stack */}
-              <ul className="flex gap-4 flex-wrap">
-                {project.stack.map((item, index) => (
-                  <li key={index} className="text-xl text-accent">
-                    {item.name}
-                    {/* remove the last comp */}
-                    {index !== project.stack.length - 1 && ','}
-                  </li>
-                ))}
-              </ul>
+            </div>
+            <div className="flex flex-col gap-3">
               {/* border */}
               <div className="border border-white/20"></div>
               {/* button */}
               <div className="flex items-center gap-4">
                 {/* live project button */}
-                {project.num !== '03' && (
+                {project.num !== '10' && (
                   <Link href={project.live}>
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
@@ -153,9 +148,7 @@ const Work = () => {
                 )}
 
                 {/* github project button */}
-                {(project.num === '02' ||
-                  project.num === '03' ||
-                  project.num === '04') && (
+                {(project.num === '03' || project.num === '04') && (
                   <Link href={project.github}>
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
@@ -172,27 +165,24 @@ const Work = () => {
               </div>
             </div>
           </div>
-          <div className="w-full xl:w-[50%]">
+          <div className="w-full xl:w-[50%] order-2">
             <Swiper
               spaceBetween={30}
               slidesPerView={1}
-              className="xl:h-[520px] mb-12"
+              className="xl:h-[300px] mb-12"
               onSlideChange={handleSliderChange}
             >
               {projects.map((project, index) => (
                 <SwiperSlide key={index} className="w-full">
-                  <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
-                    {/* overlay */}
-                    <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
-                    {/* image */}
-                    <div className="relative w-full h-full">
-                      <Image
-                        src={project.image}
-                        fill
-                        className="object-cover"
-                        alt=""
-                      />
-                    </div>
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <ul className="flex gap-4 flex-wrap mx-[100px] xl:mx-[50px]">
+                      {project.stack.map((item, index) => (
+                        <li key={index} className="text-2xl text-accent ">
+                          {item.name}
+                          {index !== project.stack.length - 1 && ','}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </SwiperSlide>
               ))}

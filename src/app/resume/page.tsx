@@ -59,12 +59,12 @@ const experience = {
     {
       company: 'Generation Impact Global',
       position: 'Frontend Developer | NextJs',
-      duration: '2021 - Present',
+      duration: '2024 - Present',
     },
     {
       company: 'Scootapi - Micromobility Sharing Technology',
       position: 'Frontend Developer | React',
-      duration: '2021 - 2025',
+      duration: '2021 - 2024',
     },
   ],
 };
